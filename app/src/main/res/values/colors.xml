@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Kalkura Design System Palette -->
+    <color name="primary">#2563EB</color>
+    <color name="primary_dark">#1D4ED8</color>
+    <color name="primary_light">#EFF6FF</color>
+
+    <color name="surface_bg">#F8FAFC</color>
+    <color name="card_bg">#FFFFFF</color>
+
+    <color name="text_main">#0F172A</color>
+    <color name="text_sub">#64748B</color>
+
+    <color name="status_tuntas_bg">#DCFCE7</color>
+    <color name="status_tuntas_text">#15803D</color>
+
+    <color name="status_remedial_bg">#FEE2E2</color>
+    <color name="status_remedial_text">#B91C1C</color>
+
+    <color name="whatsapp_green">#16A34A</color>
+    <color name="whatsapp_dark">#15803D</color>
+
+    <color name="border_color">#E2E8F0</color>
+</resources>
