@@ -15,8 +15,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/primary"
-            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/primary_teal"
+            app:cardCornerRadius="20dp"
             app:cardElevation="2dp"
             app:strokeWidth="0dp">
 
@@ -51,10 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/primary_light"
-            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/primary_teal_light"
+            app:cardCornerRadius="20dp"
             app:cardElevation="0dp"
-            app:strokeColor="@color/primary"
+            app:strokeColor="@color/primary_teal"
             app:strokeWidth="1dp">
 
             <LinearLayout
@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Bobot Penilaian &amp; KKM Aktif"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/primary_teal"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -82,7 +82,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ubah"
-                        android:textColor="@color/primary"
+                        android:textColor="@color/primary_teal"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -92,8 +92,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Tugas: 40% | UTS: 25% | UAS: 35% (KKM: 75)"
-                    android:textColor="@color/primary_dark"
+                    android:text="Tugas: | UTS: | UAS: (KKM: )"
+                    android:textColor="@color/primary_teal_dark"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             app:cardBackgroundColor="@color/card_bg"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_color"
             app:strokeWidth="1dp">
@@ -146,11 +146,15 @@
                 <Button
                     android:id="@+id/btnHitung"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginTop="12dp"
-                    android:backgroundTint="@color/primary"
-                    android:text="Mulai Hitung" />
+                    android:text="Mulai Hitung"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="26dp" />
             </LinearLayout>
+
+
         </com.google.android.material.card.MaterialCardView>
 
         <!-- 2. Card Simulasi Target UAS -->
@@ -159,7 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             app:cardBackgroundColor="@color/card_bg"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_color"
             app:strokeWidth="1dp">
@@ -190,9 +194,12 @@
                     android:id="@+id/btnSimulasi"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginTop="12dp"
-                    android:text="Buka Simulasi" />
+                    android:text="Buka Simulasi"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="26dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -202,7 +209,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             app:cardBackgroundColor="@color/card_bg"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_color"
             app:strokeWidth="1dp">
@@ -233,9 +240,12 @@
                     android:id="@+id/btnRiwayat"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginTop="12dp"
-                    android:text="Lihat Riwayat" />
+                    android:text="Lihat Riwayat"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="26dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -245,7 +255,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             app:cardBackgroundColor="@color/card_bg"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_color"
             app:strokeWidth="1dp">
@@ -276,9 +286,12 @@
                     android:id="@+id/btnPengaturan"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginTop="12dp"
-                    android:text="Atur Bobot" />
+                    android:text="Atur Bobot"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="26dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
