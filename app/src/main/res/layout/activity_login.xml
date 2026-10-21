@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Asisten Penilaian Rapor Cepat"
+            android:text="Kenali Nilaimu, Raih Targetmu"
             android:textColor="#7A8B8D"
             android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
