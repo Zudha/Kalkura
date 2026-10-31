@@ -94,7 +94,7 @@
                 android:orientation="vertical"
                 android:paddingHorizontal="24dp">
 
-                <!-- Weight Summary Card ("weight-summary-card") -->
+                <!-- Weight Summary Card -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

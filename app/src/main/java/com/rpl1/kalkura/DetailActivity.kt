@@ -1,10 +1,12 @@
 package com.rpl1.kalkura
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.rpl1.kalkura.databinding.ActivityDetailBinding
 import org.json.JSONArray
 import org.json.JSONObject
@@ -19,10 +21,15 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         val sharedPref = getSharedPreferences("KalkuraPref", Context.MODE_PRIVATE)
 
-        // Tangkap Intent Extra
+        // Tangkap Explicit Intent Extra
         val nama = intent.getStringExtra(HitungActivity.EXTRA_NAMA) ?: "Siswa"
+        val gender = intent.getStringExtra(HitungActivity.EXTRA_GENDER) ?: "Laki-Laki"
         val tugas = intent.getDoubleExtra(HitungActivity.EXTRA_TUGAS, 0.0)
         val uts = intent.getDoubleExtra(HitungActivity.EXTRA_UTS, 0.0)
         val uas = intent.getDoubleExtra(HitungActivity.EXTRA_UAS, 0.0)
@@ -52,7 +59,7 @@ class DetailActivity : AppCompatActivity() {
         val statusKKM = if (isTuntas) "TUNTAS" else "REMEDIAL"
 
         // Tampilkan ke UI
-        binding.tvNamaSiswa.text = nama
+        binding.tvNamaSiswa.text = "$nama ($gender)"
         binding.tvRincianTugas.text = String.format(Locale.getDefault(), "Tugas (%d%%): %.1f × %d%% = %.2f", bTugas, tugas, bTugas, pTugas)
         binding.tvRincianUTS.text = String.format(Locale.getDefault(), "UTS (%d%%): %.1f × %d%% = %.2f", bUTS, uts, bUTS, pUTS)
         binding.tvRincianUAS.text = String.format(Locale.getDefault(), "UAS (%d%%): %.1f × %d%% = %.2f", bUAS, uas, bUAS, pUAS)
@@ -71,10 +78,16 @@ class DetailActivity : AppCompatActivity() {
 
         // Tombol Simpan & Hitung Siswa Selanjutnya
         binding.btnSimpanDanLanjut.setOnClickListener {
-            simpanKeRiwayat(sharedPref, nama, tugas, uts, uas, nilaiAkhir, predikat, statusKKM)
+            simpanKeRiwayat(sharedPref, nama, gender, tugas, uts, uas, nilaiAkhir, predikat, statusKKM)
             setResult(RESULT_OK)
-            Toast.makeText(this, "Data $nama berhasil disimpan!", Toast.LENGTH_SHORT).show()
-            finish()
+
+            // Umpan balik Snackbar disertai Action Button
+            Snackbar.make(binding.root, "Data $nama berhasil disimpan ke riwayat!", Snackbar.LENGTH_LONG)
+                .setAction("LIHAT RIWAYAT") {
+                    startActivity(Intent(this, RiwayatActivity::class.java))
+                    finish()
+                }
+                .show()
         }
 
         // Tombol Kembali
@@ -86,6 +99,7 @@ class DetailActivity : AppCompatActivity() {
     private fun simpanKeRiwayat(
         sharedPref: android.content.SharedPreferences,
         nama: String,
+        gender: String,
         tugas: Double,
         uts: Double,
         uas: Double,
@@ -101,7 +115,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
         val studentObject = JSONObject().apply {
-            put("nama", nama)
+            put("nama", "$nama ($gender)")
             put("tugas", tugas)
             put("uts", uts)
             put("uas", uas)
