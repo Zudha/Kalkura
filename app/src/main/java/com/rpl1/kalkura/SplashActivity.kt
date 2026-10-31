@@ -5,21 +5,17 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.rpl1.kalkura.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySplashBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySplashBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_splash)
 
-        // Delay 2 detik lalu pindah ke HomeActivity
+        // Timer delay selama 2.5 detik sebelum berpindah ke LoginActivity
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, HomeActivity::class.java))
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
             finish()
-        }, 2000)
+        }, 2500)
     }
 }

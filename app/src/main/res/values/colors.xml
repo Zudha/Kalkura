@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Kalkura Brand Colors -->
+    <color name="kalkura_primary">#2B585C</color>
+    <color name="kalkura_primary_dark">#214548</color>
+    <color name="kalkura_primary_light">#3A6C71</color>
+    <color name="kalkura_splash_bg">#2B585C</color>
+    <color name="kalkura_splash_title">#4D8E93</color>
+    <color name="kalkura_splash_sub">#99C0C3</color>
+    <color name="kalkura_bg_light">#F3F4F6</color>
+    <color name="kalkura_card_bg">#2B585C</color>
+    <color name="kalkura_text_title">#1F2937</color>
+    <color name="kalkura_text_sub">#7A8B8D</color>
+    <color name="kalkura_accent_green">#10B981</color>
+    <color name="kalkura_accent_navy">#1E293B</color>
 
-    <!-- Kalkura Palette -->
+    <color name="teal_bg">#2B585C</color>
+    <color name="teal_dark">#214548</color>
+    <color name="teal_card">#2B585C</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_light">#F3F4F6</color>
+    <color name="gray_text">#7A8B8D</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Kalkura System Palette -->
     <color name="primary">#38666A</color>
     <color name="primary_dark">#2A4F52</color>
     <color name="primary_light">#E6F0F2</color>
