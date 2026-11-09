@@ -18,6 +18,11 @@ class SimulasiActivity : AppCompatActivity() {
         binding = ActivitySimulasiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Tombol Kembali
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         val sharedPref = getSharedPreferences("KalkuraPref", Context.MODE_PRIVATE)
         val bTugas = sharedPref.getInt("bobot_tugas", 40)
         val bUTS = sharedPref.getInt("bobot_uts", 25)

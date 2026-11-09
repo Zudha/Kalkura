@@ -2,6 +2,7 @@ package com.rpl1.kalkura
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,16 +29,21 @@ class RiwayatActivity : AppCompatActivity() {
         binding = ActivityRiwayatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Tombol Kembali
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         adapter = RiwayatAdapter(studentList)
         binding.rvRiwayat.layoutManager = LinearLayoutManager(this)
         binding.rvRiwayat.adapter = adapter
 
         muatRiwayat()
 
-        // Tombol Bagikan Teks Rekap (Implicit Intent)
-        binding.btnBagikan.setOnClickListener {
+        // Tombol Ekspor Teks (Implicit Intent - Bagikan ke WhatsApp / aplikasi lain)
+        binding.btnEksporTeks.setOnClickListener {
             if (studentList.isEmpty()) {
-                Toast.makeText(this, "Tidak ada data riwayat untuk dibagikan!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Tidak ada data riwayat untuk diekspor!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -51,23 +57,32 @@ class RiwayatActivity : AppCompatActivity() {
                 val nilaiAkhir = obj.optDouble("nilai_akhir", 0.0)
                 val predikat = obj.optString("predikat", "-")
                 val statusKKM = obj.optString("status_kkm", "-")
+                val tugas = obj.optDouble("tugas", 0.0)
+                val uts = obj.optDouble("uts", 0.0)
+                val uas = obj.optDouble("uas", 0.0)
 
-                textBuilder.append(String.format(Locale.getDefault(), "%d. %s - %.2f (%s) [%s]\n", i + 1, nama, nilaiAkhir, predikat, statusKKM))
+                textBuilder.append(
+                    String.format(
+                        Locale.getDefault(),
+                        "%d. %s - Nilai: %.2f (%s) [%s] (T:%.0f, U:%.0f, A:%.0f)\n",
+                        i + 1, nama, nilaiAkhir, predikat, statusKKM, tugas, uts, uas
+                    )
+                )
             }
 
             textBuilder.append("\n==================================")
-            textBuilder.append("\nTotal Siswa: ${studentList.size}")
+            textBuilder.append("\nTotal Tersimpan: ${studentList.size} Data")
 
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_SUBJECT, "Rekapitulasi Nilai Siswa - Kalkura")
                 putExtra(Intent.EXTRA_TEXT, textBuilder.toString())
             }
-            startActivity(Intent.createChooser(shareIntent, "Bagikan Teks Rekap via"))
+            startActivity(Intent.createChooser(shareIntent, "Ekspor Teks Rekap via"))
         }
 
-        // Tombol Hapus Semua Riwayat
-        binding.btnHapusRiwayat.setOnClickListener {
+        // Tombol Hapus Data
+        binding.btnHapusData.setOnClickListener {
             if (studentList.isEmpty()) {
                 Toast.makeText(this, "Riwayat sudah kosong!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -103,7 +118,7 @@ class RiwayatActivity : AppCompatActivity() {
     }
 
     private fun updateTampilanKosong() {
-        binding.tvTotalSiswa.text = "Total Data: ${studentList.size} Siswa"
+        binding.tvDataTersimpan.text = "${studentList.size} Data Tersimpan"
         if (studentList.isEmpty()) {
             binding.tvKosong.visibility = View.VISIBLE
             binding.rvRiwayat.visibility = View.GONE
@@ -131,28 +146,32 @@ class RiwayatActivity : AppCompatActivity() {
             val tugas = obj.optDouble("tugas", 0.0)
             val uts = obj.optDouble("uts", 0.0)
             val uas = obj.optDouble("uas", 0.0)
-            val nilaiAkhir = obj.optDouble("nilai_akhir", 0.0)
             val predikat = obj.optString("predikat", "-")
-            val statusKKM = obj.optString("status_kkm", "-")
 
             val context = holder.itemView.context
 
             holder.binding.tvNomor.text = "${position + 1}."
             holder.binding.tvNamaSiswa.text = nama
-            holder.binding.tvNilaiDanPredikat.text = String.format(
+            holder.binding.tvNilaiRincian.text = String.format(
                 Locale.getDefault(),
-                "Nilai: %.2f (%s) | T:%.0f U:%.0f A:%.0f",
-                nilaiAkhir, predikat, tugas, uts, uas
+                "Tugas: %.0f | UTS: %.0f | UAS: %.0f",
+                tugas, uts, uas
             )
-            holder.binding.tvStatusKKM.text = statusKKM
 
-            if (statusKKM.equals("TUNTAS", ignoreCase = true)) {
-                holder.binding.tvStatusKKM.setBackgroundColor(ContextCompat.getColor(context, R.color.status_tuntas_bg))
-                holder.binding.tvStatusKKM.setTextColor(ContextCompat.getColor(context, R.color.status_tuntas_text))
-            } else {
-                holder.binding.tvStatusKKM.setBackgroundColor(ContextCompat.getColor(context, R.color.status_remedial_bg))
-                holder.binding.tvStatusKKM.setTextColor(ContextCompat.getColor(context, R.color.status_remedial_text))
+            // Format Badge Grade: "— A", "— B", "— C"
+            val badgeText = if (predikat.length == 1) "— $predikat" else predikat
+            holder.binding.tvBadgePredikat.text = badgeText
+
+            val colorRes = when (predikat.uppercase(Locale.getDefault())) {
+                "A" -> R.color.grade_a
+                "B" -> R.color.grade_b
+                "C" -> R.color.grade_c
+                else -> R.color.grade_d
             }
+
+            holder.binding.tvBadgePredikat.backgroundTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(context, colorRes)
+            )
         }
 
         override fun getItemCount(): Int = list.size

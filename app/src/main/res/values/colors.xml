@@ -3,13 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Kalkura Design System Palette -->
-    <color name="primary">#2563EB</color>
-    <color name="primary_dark">#1D4ED8</color>
-    <color name="primary_light">#EFF6FF</color>
+    <!-- Kalkura Design System Palette (Teal Theme) -->
+    <color name="primary">#2D585C</color>
+    <color name="primary_dark">#1E3E41</color>
+    <color name="primary_light">#EAF1F2</color>
 
     <color name="surface_bg">#F8FAFC</color>
-    <color name="card_bg">#FFFFFF</color>
+    <color name="card_bg">#2D585C</color>
 
     <color name="text_main">#0F172A</color>
     <color name="text_sub">#64748B</color>
@@ -20,8 +20,14 @@
     <color name="status_remedial_bg">#FEE2E2</color>
     <color name="status_remedial_text">#B91C1C</color>
 
+    <color name="grade_a">#4ADE80</color>
+    <color name="grade_b">#A3E635</color>
+    <color name="grade_c">#F87171</color>
+    <color name="grade_d">#EF4444</color>
+
     <color name="whatsapp_green">#16A34A</color>
     <color name="whatsapp_dark">#15803D</color>
 
-    <color name="border_color">#E2E8F0</color>
+    <color name="border_color">#CBD5E1</color>
+    <color name="red_delete">#EF4444</color>
 </resources>

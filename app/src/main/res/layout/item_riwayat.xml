@@ -3,28 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="12dp"
     app:cardBackgroundColor="@color/card_bg"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="1dp"
-    app:strokeColor="@color/border_color"
-    app:strokeWidth="1dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="14dp">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvNomor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
+            android:paddingEnd="12dp"
             android:text="1."
-            android:textColor="@color/primary"
-            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -37,31 +36,32 @@
                 android:id="@+id/tvNamaSiswa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Andi Santoso"
-                android:textColor="@color/text_main"
-                android:textSize="15sp"
+                android:text="Andikari"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvNilaiDanPredikat"
+                android:id="@+id/tvNilaiRincian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Nilai Akhir: 85.00 (A) | T:80 U:85 A:90"
-                android:textColor="@color/text_sub"
+                android:layout_marginTop="4dp"
+                android:text="Tugas: 80 | UTS: 85 | UAS: 90"
+                android:textColor="#CBD5E1"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvStatusKKM"
+            android:id="@+id/tvBadgePredikat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/status_tuntas_bg"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:text="TUNTAS"
-            android:textColor="@color/status_tuntas_text"
-            android:textSize="12sp"
+            android:background="@drawable/bg_grade_badge"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="— B"
+            android:textColor="#0F172A"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -4,87 +4,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface_bg"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Riwayat &amp; Rekap Data"
-        android:textColor="@color/text_main"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
-        android:text="Daftar rekap nilai siswa tersimpan"
-        android:textColor="@color/text_sub"
-        android:textSize="14sp" />
-
-    <!-- Total Counter Card -->
-    <com.google.android.material.card.MaterialCardView
+    <!-- Header Toolbar -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/primary_light"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="0dp"
-        app:strokeColor="@color/primary"
-        app:strokeWidth="1dp">
+        android:layout_height="60dp"
+        android:background="@color/primary"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Kembali"
+            android:focusable="true"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/white" />
 
         <TextView
-            android:id="@+id/tvTotalSiswa"
-            android:layout_width="match_parent"
+            android:id="@+id/tvTitleBar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="14dp"
-            android:text="Total Data: 0 Siswa"
-            android:textColor="@color/primary_dark"
-            android:textSize="13sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/btnBack"
+            android:text="Riwayat Hitung Nilai"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
-    </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
 
-    <!-- Action Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <Button
-            android:id="@+id/btnBagikan"
+        <!-- Subheader Row: Data Tersimpan & Hapus Data -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/whatsapp_green"
-            android:padding="12dp"
-            android:text="Bagikan Rekap ke WhatsApp" />
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnHapusRiwayat"
-            style="@style/Widget.Material3.Button.OutlinedButton"
+            <TextView
+                android:id="@+id/tvDataTersimpan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Data Tersimpan"
+                android:textColor="@color/text_sub"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/btnHapusData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:text="Hapus Data"
+                android:textColor="@color/red_delete"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Empty State TextView -->
+        <TextView
+            android:id="@+id/tvKosong"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Belum ada riwayat hitung nilai siswa.\nSilakan lakukan perhitungan nilai pada menu utama."
+            android:textColor="@color/text_sub"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRiwayat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="12dp" />
+
+        <!-- Bottom Export Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEksporTeks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Hapus Semua Riwayat" />
+            android:backgroundTint="@color/primary"
+            android:paddingVertical="14dp"
+            android:text="Ekspor Teks"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvKosong"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="Belum ada riwayat hitung nilai siswa.\nSilakan lakukan perhitungan nilai pada menu utama."
-        android:textColor="@color/text_sub"
-        android:textSize="14sp"
-        android:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRiwayat"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
 </LinearLayout>
