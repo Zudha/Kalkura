@@ -22,13 +22,6 @@
     <color name="gray_text">#7A8B8D</color>
     <color name="black">#FF000000</color>
 
-    <!-- Kalkura Design System Palette (Teal Theme) -->
-    <color name="primary">#2D585C</color>
-    <color name="primary_dark">#1E3E41</color>
-    <color name="primary_light">#EAF1F2</color>
-
-    <color name="surface_bg">#F8FAFC</color>
-    <color name="card_bg">#2D585C</color>
     <!-- Kalkura System Palette -->
     <color name="primary">#38666A</color>
     <color name="primary_dark">#2A4F52</color>
@@ -66,6 +59,4 @@
 
     <color name="border_color">#CBD5E1</color>
     <color name="red_delete">#EF4444</color>
-</resources>
-    <color name="border_color">#D0DEE1</color>
 </resources>
