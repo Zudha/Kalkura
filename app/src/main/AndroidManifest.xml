@@ -19,32 +19,37 @@
             </intent-filter>
         </activity>
 
-        <!-- 2. HOME ACTIVITY -->
+        <!-- 2. LOGIN ACTIVITY -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <!-- 3. HOME ACTIVITY -->
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
 
-        <!-- 3. PENGATURAN ACTIVITY -->
+        <!-- 4. PENGATURAN ACTIVITY -->
         <activity
             android:name=".PengaturanActivity"
             android:exported="false" />
 
-        <!-- 4. HITUNG ACTIVITY -->
+        <!-- 5. HITUNG ACTIVITY -->
         <activity
             android:name=".HitungActivity"
             android:exported="false" />
 
-        <!-- 5. DETAIL ACTIVITY -->
+        <!-- 6. DETAIL ACTIVITY -->
         <activity
             android:name=".DetailActivity"
             android:exported="false" />
 
-        <!-- 6. SIMULASI ACTIVITY -->
+        <!-- 7. SIMULASI ACTIVITY -->
         <activity
             android:name=".SimulasiActivity"
             android:exported="false" />
 
-        <!-- 7. RIWAYAT ACTIVITY -->
+        <!-- 8. RIWAYAT ACTIVITY -->
         <activity
             android:name=".RiwayatActivity"
             android:exported="false" />

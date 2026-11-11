@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- White Base Container / Background Card -->
+    <path
+        android:pathData="M24,12 L96,12 A12,12 0 0,1 108,24 L108,96 A12,12 0 0,1 96,108 L24,108 A12,12 0 0,1 12,96 L12,24 A12,12 0 0,1 24,12 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Calculator Body (Navy/Dark Teal) -->
+    <path
+        android:pathData="M38,46 C38,42 41,39 45,39 L75,39 C79,39 82,42 82,46 L82,90 C82,94 79,97 75,97 L45,97 C41,97 38,94 38,90 Z"
+        android:fillColor="#1E293B" />
+
+    <!-- Calculator Screen -->
+    <path
+        android:pathData="M43,44 L77,44 A2,2 0 0,1 79,46 L79,56 A2,2 0 0,1 77,58 L43,58 A2,2 0 0,1 41,56 L41,46 A2,2 0 0,1 43,44 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!-- Screen Grid Lines / Mini Numbers -->
+    <path
+        android:pathData="M45,49 L51,49 M45,53 L55,53"
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+
+    <!-- Calculator Buttons (White rounded squares) -->
+    <!-- Row 1: 1, 2 -->
+    <path
+        android:pathData="M43,63 L53,63 A2,2 0 0,1 55,65 L55,73 A2,2 0 0,1 53,75 L43,75 A2,2 0 0,1 41,73 L41,65 A2,2 0 0,1 43,63 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M45,69 L51,69"
+        android:strokeColor="#1E293B"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+
+    <path
+        android:pathData="M59,63 L69,63 A2,2 0 0,1 71,65 L71,73 A2,2 0 0,1 69,75 L59,75 A2,2 0 0,1 57,73 L57,65 A2,2 0 0,1 59,63 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M61,69 L67,69"
+        android:strokeColor="#1E293B"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+
+    <!-- Row 2: 4, 5 -->
+    <path
+        android:pathData="M43,79 L53,79 A2,2 0 0,1 55,81 L55,89 A2,2 0 0,1 53,91 L43,91 A2,2 0 0,1 41,89 L41,81 A2,2 0 0,1 43,79 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M45,85 L51,85"
+        android:strokeColor="#1E293B"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+
+    <path
+        android:pathData="M59,79 L69,79 A2,2 0 0,1 71,81 L71,89 A2,2 0 0,1 69,91 L59,91 A2,2 0 0,1 57,89 L57,81 A2,2 0 0,1 59,79 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M61,85 L67,85"
+        android:strokeColor="#1E293B"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+
+    <!-- Plus Button (+) -->
+    <path
+        android:pathData="M75,63 L77,63 A2,2 0 0,1 79,65 L79,89 A2,2 0 0,1 77,91 L75,91 A2,2 0 0,1 73,89 L73,65 A2,2 0 0,1 75,63 Z"
+        android:fillColor="#10B981" />
+    <path
+        android:pathData="M76,73 L76,81 M72,77 L80,77"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round" />
+
+    <!-- Graduation Cap (Green / Emerald) -->
+    <!-- Cap Diamond / Top -->
+    <path
+        android:pathData="M60,18 L92,30 L60,42 L28,30 Z"
+        android:fillColor="#059669" />
+
+    <!-- Cap Skull Base -->
+    <path
+        android:pathData="M42,35.5 L42,43 C42,47 50,50 60,50 C70,50 78,47 78,43 L78,35.5 Z"
+        android:fillColor="#047857" />
+
+    <!-- Tassel String and Hanging Ornament -->
+    <path
+        android:pathData="M84,31.5 L88,44 L88,48"
+        android:strokeColor="#10B981"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M88,48 A2.5,2.5 0 1,1 87.9,48"
+        android:fillColor="#047857" />
+</vector>

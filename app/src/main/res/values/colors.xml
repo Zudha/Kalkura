@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Kalkura Brand Colors -->
+    <color name="kalkura_primary">#2B585C</color>
+    <color name="kalkura_primary_dark">#214548</color>
+    <color name="kalkura_primary_light">#3A6C71</color>
+    <color name="kalkura_splash_bg">#2B585C</color>
+    <color name="kalkura_splash_title">#4D8E93</color>
+    <color name="kalkura_splash_sub">#99C0C3</color>
+    <color name="kalkura_bg_light">#F3F4F6</color>
+    <color name="kalkura_card_bg">#2B585C</color>
+    <color name="kalkura_text_title">#1F2937</color>
+    <color name="kalkura_text_sub">#7A8B8D</color>
+    <color name="kalkura_accent_green">#10B981</color>
+    <color name="kalkura_accent_navy">#1E293B</color>
+
+    <color name="teal_bg">#2B585C</color>
+    <color name="teal_dark">#214548</color>
+    <color name="teal_card">#2B585C</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_light">#F3F4F6</color>
+    <color name="gray_text">#7A8B8D</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
     <!-- Kalkura Design System Palette (Teal Theme) -->
     <color name="primary">#2D585C</color>
@@ -10,9 +29,26 @@
 
     <color name="surface_bg">#F8FAFC</color>
     <color name="card_bg">#2D585C</color>
+    <!-- Kalkura System Palette -->
+    <color name="primary">#38666A</color>
+    <color name="primary_dark">#2A4F52</color>
+    <color name="primary_light">#E6F0F2</color>
 
-    <color name="text_main">#0F172A</color>
-    <color name="text_sub">#64748B</color>
+    <color name="primary_teal">#38666A</color>
+    <color name="primary_teal_dark">#2A4F52</color>
+    <color name="primary_teal_light">#E6F0F2</color>
+
+    <color name="slate_teal">#38666A</color>
+    <color name="slate_teal_dark">#2A4F52</color>
+    <color name="emerald_green">#21A160</color>
+    <color name="mockup_bg">#F4F6F7</color>
+    <color name="badge_black">#18181B</color>
+
+    <color name="surface_bg">#F4F6F7</color>
+    <color name="card_bg">#FFFFFF</color>
+
+    <color name="text_main">#132629</color>
+    <color name="text_sub">#547076</color>
 
     <color name="status_tuntas_bg">#DCFCE7</color>
     <color name="status_tuntas_text">#15803D</color>
@@ -30,4 +66,6 @@
 
     <color name="border_color">#CBD5E1</color>
     <color name="red_delete">#EF4444</color>
+</resources>
+    <color name="border_color">#D0DEE1</color>
 </resources>

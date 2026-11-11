@@ -1,12 +1,12 @@
 package com.rpl1.kalkura
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.rpl1.kalkura.databinding.ActivityPengaturanBinding
 
 class PengaturanActivity : AppCompatActivity() {
@@ -18,6 +18,10 @@ class PengaturanActivity : AppCompatActivity() {
         binding = ActivityPengaturanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         val sharedPref = getSharedPreferences("KalkuraPref", Context.MODE_PRIVATE)
 
         // Tampilkan bobot tersimpan (Default: 40, 25, 35, KKM 75)
@@ -25,6 +29,13 @@ class PengaturanActivity : AppCompatActivity() {
         binding.etBobotUTS.setText(sharedPref.getInt("bobot_uts", 25).toString())
         binding.etBobotUAS.setText(sharedPref.getInt("bobot_uas", 35).toString())
         binding.etKKM.setText(sharedPref.getInt("kkm_minimum", 75).toString())
+
+        val isSMK = sharedPref.getBoolean("is_smk", false)
+        if (isSMK) {
+            binding.rbSMK.isChecked = true
+        } else {
+            binding.rbSMA.isChecked = true
+        }
 
         val watcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -63,17 +74,26 @@ class PengaturanActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            val checkSMK = binding.rbSMK.isChecked
+
             // Simpan ke SharedPreferences
             sharedPref.edit().apply {
                 putInt("bobot_tugas", bTugas)
                 putInt("bobot_uts", bUTS)
                 putInt("bobot_uas", bUAS)
                 putInt("kkm_minimum", kkm)
+                putBoolean("is_smk", checkSMK)
                 apply()
             }
 
             Toast.makeText(this, "Pengaturan berhasil disimpan!", Toast.LENGTH_SHORT).show()
-            finish()
+
+            // Umpan balik Snackbar dengan Action Button
+            Snackbar.make(binding.root, "Pengaturan Bobot & KKM Disimpan!", Snackbar.LENGTH_LONG)
+                .setAction("LIHAT BERANDA") {
+                    finish()
+                }
+                .show()
         }
     }
 
@@ -83,12 +103,6 @@ class PengaturanActivity : AppCompatActivity() {
         val bUAS = binding.etBobotUAS.text.toString().trim().toIntOrNull() ?: 0
         val total = bTugas + bUTS + bUAS
 
-        if (total == 100) {
-            binding.tvTotalBobot.text = "100% (Sesuai)"
-            binding.tvTotalBobot.setTextColor(Color.parseColor("#15803D")) // Dark green
-        } else {
-            binding.tvTotalBobot.text = "$total% (Harus 100%)"
-            binding.tvTotalBobot.setTextColor(Color.parseColor("#B91C1C")) // Dark red
-        }
+        binding.tvTotalBobot.text = "$total%"
     }
 }
